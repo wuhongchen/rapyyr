@@ -1,0 +1,46 @@
+<div class="jumbotron">
+	<h1>Navbar example</h1>
+	<p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
+	<p>To see the difference between static and fixed top navbars, just scroll.</p>
+	<p>
+		<a class="btn btn-lg btn-primary" href="http://wx.cn/index.php/index/about" role="button">View navbar docs &raquo;</a>
+	</p>
+</div>
+<h2>传参：{$data.name}</h2>
+<pre>
+ThinkPHP3.1快速入门（15）模板布局
+浏览：19757 发布日期：2012/11/21 分类：文档教程	 关键字： 快速入门 模板布局
+ThinkPHP的模板引擎内置了布局模板功能支持，可以方便的实现模板布局以及布局嵌套功能。
+有三种布局模板的支持方式：
+
+第三种方式：使用layout控制模板布局
+使用内置的layout方法可以更灵活的在程序中控制模板输出的布局功能，尤其适用于局部需要布局或者关闭布局的情况，这种方式也不需要在配置文件中开启LAYOUT_ON。例如：
+Class UserAction extends Action {
+    Public function add() {
+        layout(true);
+        $this->display('add');
+    }
+ }
+复制代码
+表示当前的模板输出启用了布局模板，并且采用默认的layout布局模板。
+如果当前输出需要使用不同的布局模板，可以动态的指定布局模板名称，例如：
+Class UserAction extends Action {
+    Public function add() {
+        layout('Layout/newlayout');
+        $this->display('add');
+    }
+ }
+复制代码
+或者使用layout方法动态关闭当前模板的布局功能（这种用法可以配合第一种布局方式，例如全局配置已经开启了布局，可以在某个页面单独关闭）：
+Class UserAction extends Action {
+    Public function add() {
+        layout(false); // 临时关闭当前模板的布局功能
+        $this->display('add');
+    }
+ }
+复制代码
+
+总结
+三种模板布局方式中，第一种和第三种是在程序中配置实现模板布局，第二种方式则是单纯通过模板标签在模板中使用布局。具体选择什么方式，需要根据项目的实际情况来了。
+</pre>
+<br />
